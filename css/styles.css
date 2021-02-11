@@ -136,6 +136,15 @@ img {
 
 /*====== icon mail & tel svg======*/
 
+.mail-icon,
+.tel-icon {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  content: "";
+  margin-right: 10px;
+}
+
 .contact-link-mail,
 .contact-link-tel {
   display: flex;
@@ -151,17 +160,8 @@ img {
 .contact-link-tel .tel-icon {
   fill: currentcolor;
 
-  transition: color var(--time) var(--animation-function),
+  transition: fill var(--time) var(--animation-function),
     background-color var(--time) var(--animation-function);
-}
-
-.mail-icon,
-.tel-icon {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-  content: "";
-  margin-right: 10px;
 }
 
 /*NAV webstudio and portfolio */
