@@ -497,8 +497,6 @@ img {
 
 .our-klient-list {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .our-klient-list-item {
@@ -507,7 +505,7 @@ img {
 }
 
 .our-klient-list-link {
-  display: inline-flex;
+  display: flex;
   background-position: 50% 50%;
   justify-content: center;
   align-items: center;
@@ -523,18 +521,9 @@ img {
     border-color var(--time) var(--animation-function);
 }
 
-.our-klient-img {
-  display: inline-flex;
-  justify-content: center;
-}
-
-.our-klient-list-link:hover .our-klient-img,
-.our-klient-list-link:focus .our-klient-img {
-  fill: var(--accent-color);
-}
-
 .our-klient-list-link:hover,
 .our-klient-list-link:focus {
+  fill: var(--accent-color);
   border-color: var(--accent-color);
 }
 
@@ -583,27 +572,25 @@ img {
   background-color: var(--primary-white-color);
   fill: currentColor;
 
-  transition: color var(--time) var(--animation-function),
+  transition: fill var(--time) var(--animation-function),
+    color var(--time) var(--animation-function),
     background-color var(--time) var(--animation-function);
-}
-
-.social-list-link:hover .social-list-icon,
-.social-list-link:focus .social-list-icon {
-  fill: var(--primary-white-color);
 }
 
 .social-list-link:hover,
 .social-list-link:focus {
+  fill: var(--primary-white-color);
   background-color: var(--accent-color);
 }
 
 .social-list-link-footer {
-  background-color: var(--color-link-icon-footer);
   fill: var(--primary-white-color);
+  background-color: var(--color-link-icon-footer);
 }
 
 .social-list-link-footer:hover,
 .social-list-link-footer:focus {
+  fill: var(--primary-white-color);
   background-color: var(--accent-color);
 }
 
