@@ -236,6 +236,38 @@ img {
   color: var(--accent-color);
 }
 
+/*===== подчеркивание навигационной строки =====*/
+.navigation-list-item .navigation-list-link.current-link::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  animation-name: scale;
+  animation-duration: 250ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  transform-origin: center left;
+}
+
+@keyframes scale {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.navigation-list-item {
+  position: relative;
+}
+
 /*=======MAIN webstudio=======*/
 
 .main {
@@ -409,6 +441,34 @@ img {
   color: var(--title-text-color);
 }
 
+/* Спозиционирован текст */
+.work-instrument-lists .work-instrument-list {
+  position: relative;
+}
+.posters-description {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(47, 48, 58, 0.8);
+  z-index: -1;
+}
+.posters-text {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+}
+
 /*===About Work team===*/
 
 .about-work-team {
@@ -568,9 +628,10 @@ img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+
+  fill: currentColor;
   color: var(--color-icon-our-klient);
   background-color: var(--primary-white-color);
-  fill: currentColor;
 
   transition: fill var(--time) var(--animation-function),
     color var(--time) var(--animation-function),
@@ -695,6 +756,8 @@ img {
   margin-right: 8px;
 }
 
+/*=====Project lists=====*/
+
 .project-lists {
   display: flex;
   flex-wrap: wrap;
@@ -702,9 +765,31 @@ img {
 }
 
 .project-list-item {
+  width: 370px;
+  box-sizing: border-box;
   margin: 15px;
   border: 1px solid #eeeeee;
   cursor: pointer;
+  background: var(--primary-white-color);
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  transition: box-shadow var(--time) var(--animation-function);
+}
+
+.project-link:hover,
+.project-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.project-link-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .project-characteristics {
@@ -712,13 +797,24 @@ img {
 }
 
 .project-title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
   margin-bottom: 4px;
+  color: var(--title-text-color);
 }
 
-.project-link {
+.project-tools {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.875;
+  letter-spacing: 0.03em;
+  color: var(--primary-text-color);
 }
 
 /*===overlay portfolio===*/
+
 .project-link-img-wrapper {
   position: relative;
   overflow: hidden;
@@ -730,20 +826,25 @@ img {
   top: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: transform var(--time) var(--animation-function);
+  opacity: 0;
+}
+
+.overlay-text {
   font-weight: normal;
   font-size: 18px;
   line-height: 1.556;
   letter-spacing: 0.03em;
   padding: 63px 24px;
-  background-color: rgba(33, 150, 243, 0.9);
   color: var(--primary-white-color);
-  transform: translateY(100%);
-  transition: transform 250ms linear;
 }
 
-.project-link-img-wrapper:hover .overlay,
-.project-link-img-wrapper:focus .overlay {
+.project-link:hover .overlay,
+.project-link:focus .overlay {
   transform: translateY(0);
+  opacity: 1;
 }
 
 /*===Main conteiner toolbar BTN===*/
@@ -762,51 +863,16 @@ img {
   cursor: pointer;
 
   transition: color var(--time) var(--animation-function),
-    background-color var(--time) var(--animation-function);
+    background-color var(--time) var(--animation-function),
+    box-shadow var(--time) var(--animation-function);
 }
 
 .potfolio-toolbar-btn:hover,
 .potfolio-toolbar-btn:focus {
   background: var(--accent-color);
   color: var(--primary-white-color);
-
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-}
-
-/*======Project links======*/
-.project-list-item {
-  width: 370px;
-  background: var(--primary-white-color);
-  box-sizing: border-box;
-}
-
-/*===== dz4 :h :f project =====*/
-
-.project-list-item:hover,
-.project-list-item:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
-.project-link-img {
-  width: 100%;
-}
-
-.project-title {
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 2;
-  letter-spacing: 0.06em;
-  color: var(--title-text-color);
-}
-
-.project-tools {
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 1.875;
-  letter-spacing: 0.03em;
-  color: var(--primary-text-color);
 }
 
 /*===== Modal window =====*/
@@ -834,10 +900,11 @@ img {
 .modal-window {
   width: 528px;
   height: 571px;
+  border-radius: 4px;
+
   background-color: var(--primary-white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
 
   transition: transform var(--time) var(--animation-function);
 
@@ -869,7 +936,7 @@ img {
     background-color var(--time) var(--animation-function);
 
   transition-property: border, fill;
-  transition-duration: ;
+  /*transition-duration:;*/
   transition-timing-function: var(--time);
 }
 /*
@@ -877,63 +944,3 @@ img {
 .modal-close:focus {
 }
 */
-
-/*===== подчеркивание навигационной строки =====*/
-.navigation-list-item .navigation-list-link.current-link::after {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: block;
-  content: "";
-  width: 100%;
-  height: 4px;
-  background-color: var(--accent-color);
-  border-radius: 2px;
-  animation-name: scale;
-  animation-duration: 250ms;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  transform-origin: center left;
-}
-
-@keyframes scale {
-  0% {
-    transform: scaleX(0);
-  }
-
-  100% {
-    transform: scaleX(1);
-  }
-}
-
-.navigation-list-item {
-  position: relative;
-}
-
-/* Спозиционирован текст */
-.work-instrument-lists .work-instrument-list {
-  position: relative;
-}
-.posters-description {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 70px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(47, 48, 58, 0.8);
-  z-index: -1;
-}
-.posters-text {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 1.14;
-  text-align: center;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--primary-white-color);
-}
